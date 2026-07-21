@@ -39,11 +39,17 @@ always_ff @( posedge clk ) begin : CountMod
     if (reset) begin
         count <= 0;
     end else begin
-        case (param)
-            : 
-            default: 
+        case ({wrEn & !full, rdEn & !empty})
+            2'b10: count <= count + 1;
+            2'b01: count <=count - 1; 
+            default: count <= count;
         endcase
     end
 end
     
+always_comb begin : FlagComb
+    full = (count==depth);
+    empty = (count == 0);
+end
+
 endmodule
