@@ -1,17 +1,17 @@
 module FIFO #(
-    parameter depth = 8,
-    parameter dwidth = 16
+    parameter DEPTH = 8,
+    parameter DWIDTH = 16
 ) (
     input logic  clk, reset, wrEn, rdEn,
-    input logic [dwidth-1:0] dataIn,
-    output logic [dwidth-1:0] dataOut,
+    input logic [DWIDTH-1:0] dataIn,
+    output logic [DWIDTH-1:0] dataOut,
     output logic empty, full
 );
 
-logic [dwidth-1:0] mem[depth];
+logic [DWIDTH-1:0] mem[DEPTH];
 
-logic [$clog2(depth)-1:0] wptr, rptr;
-logic [$clog2(depth):0] count;
+logic [$clog2(DEPTH)-1:0] wptr, rptr;
+logic [$clog2(DEPTH):0] count;
 
 always_ff @( posedge clk ) begin : WriteMod
     if (reset) begin
@@ -48,7 +48,7 @@ always_ff @( posedge clk ) begin : CountMod
 end
     
 always_comb begin : FlagComb
-    full = (count==depth);
+    full = (count==DEPTH);
     empty = (count == 0);
 end
 

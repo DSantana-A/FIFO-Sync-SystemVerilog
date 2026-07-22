@@ -1,0 +1,29 @@
+# Synopsys VCS simulation artifacts
+simv
+simv.daidir/
+csrc/
+vc_hdrs.h
+*.log
+ucli.key
+.rebuild_status
+64/
+AN.DB/
+
+# Waveforms / dumps
+*.vpd
+*.vcd
+*.fsdb
+*.fsdb.hier
+
+# Verdi / DVE
+DVEfiles/
+verdiLog/
+novas.conf
+novas.rc
+novas.history
+.vlogansetup.env
+.vlogansetup.args
+.synopsys_vss.setup
+
+# OS
+.DS_Store
