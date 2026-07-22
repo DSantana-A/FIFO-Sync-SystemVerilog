@@ -1,0 +1,31 @@
+ 
+****************************************
+Report : area
+Design : FIFO
+Version: X-2025.06-SP1
+Date   : Wed Jul 22 16:58:40 2026
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    saed32hvt_ss0p75v125c (File: /home/a01403474/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p75v125c.db)
+
+Number of ports:                           38
+Number of nets:                           497
+Number of cells:                          468
+Number of combinational cells:            314
+Number of sequential cells:               154
+Number of macros/black boxes:               0
+Number of buf/inv:                         26
+Number of references:                      19
+
+Combinational area:                752.266243
+Buf/Inv area:                       33.292864
+Noncombinational area:            1017.592609
+Macro/Black Box area:                0.000000
+Net Interconnect area:             420.509543
+
+Total cell area:                  1769.858853
+Total area:                       2190.368396
+1
