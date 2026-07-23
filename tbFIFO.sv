@@ -44,6 +44,7 @@ module tbFIFO ();
         dataIn = value;
         wrEn = 1;
         @(posedge clk );
+        #1
         if (!full) refModel.push_back(value);
         wrEn = 0;
     endtask
@@ -52,6 +53,7 @@ module tbFIFO ();
         logic [DWIDTH-1:0] expected;
         rdEn = 1;
         @(posedge clk);
+        #1
         if (!empty) begin
             expected = refModel.pop_front();
             if (dataOut !== expected)
@@ -67,11 +69,13 @@ module tbFIFO ();
         for (int i = 0; i < DEPTH; i++) begin
             doWrite(i);
         end
+        #1
         if (!full) $display("ERROR: se esperaba full despues de llenar el FIFO");
 
         for (int i = 0; i < DEPTH; i++) begin
             doRead();
         end
+        #1
         if (!empty) $display("ERROR: se esperaba empty despues de vaciar el FIFO");
 
         $display("Test terminado");
